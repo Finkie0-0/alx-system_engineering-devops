@@ -1,1 +1,1 @@
-Symbolic link
+Copying HTML files
