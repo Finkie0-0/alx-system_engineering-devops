@@ -1,1 +1,1 @@
-Directory permission
+script that changes the group owner
