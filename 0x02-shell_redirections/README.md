@@ -1,1 +1,1 @@
-a shell script that creates a file named exactly
+script that duplicates the last line of the file
