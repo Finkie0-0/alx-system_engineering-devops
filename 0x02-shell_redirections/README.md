@@ -1,1 +1,1 @@
-a script that displays the 10 newest files in the current directory
+Display lines containing the pattern “root” and 3 lines after them in the file 
