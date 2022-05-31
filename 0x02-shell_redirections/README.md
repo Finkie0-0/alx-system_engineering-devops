@@ -1,1 +1,1 @@
-script that reverse its input
+Display lines containing the pattern “root” from the file
