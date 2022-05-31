@@ -1,1 +1,1 @@
-Display the number of lines that contain the pattern “bin” in the file /etc/passwd
+a script that removes all letters c and C from input
