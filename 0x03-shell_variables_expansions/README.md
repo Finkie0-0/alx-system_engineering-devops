@@ -1,1 +1,1 @@
-a script that counts the number of directories in the PATH
+a script that prints all possible combinations of two letters, except oo
