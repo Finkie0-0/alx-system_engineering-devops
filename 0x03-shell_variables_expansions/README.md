@@ -1,1 +1,1 @@
-a script that prints the result of POWER divided by DIVIDE
+a script that prints hello user, where user is the current Linux user
