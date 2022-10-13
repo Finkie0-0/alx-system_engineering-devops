@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #prints a string 10 times
-i = 0
-until [ $i -eq 10 ]
+num=0
+until [ $num -eq 10 ]
 do
 echo "Best School"
-i=$((i+1))
+num=$(( num + 1 ))
 done
