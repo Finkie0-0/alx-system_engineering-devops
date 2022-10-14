@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Script displays a previous phrase and a new phrase, indefinitel and when receiving a SIGTERM.
+while true
+do
+  echo "To infinity and beyond"
+  sleep 2
+  trap "echo 'I am invincible!!!!'" SIGTERM
+done
