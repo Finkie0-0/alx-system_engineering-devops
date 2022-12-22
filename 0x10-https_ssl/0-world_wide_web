@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # add other subdomains to make our life easier, and write a Bash script that will display information about subdomains.
 domain=$1
-SUBDOMAINS="www lb-01 web-01 web-02"
+SUBDOMAINS="www 50865-lb-01 50865-web-01 50865-web-02"
 
 function show_all() {
     for arg in $SUBDOMAINS
