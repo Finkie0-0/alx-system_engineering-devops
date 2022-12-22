@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 # add other subdomains to make our life easier, and write a Bash script that will display information about subdomains.
 
-domain=$1
-SUBDOMAINS="www lb-01 web-01 web-02"
+sub_info () {
+    
+    if [ "$#" -eq 2 ]; then
+        dig $2.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); split(a[4],b,"."); printf "The subdomain %s is a %s record and points to %s\n",b[1], a[7], a[8]}'
+    elif [ "$#" -eq 1 ]; then
+        dig www.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain www is a %s record and points to %s\n", a[7], a[8]}'
+        dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain lb-01 is a %s record and points to %s\n", a[7], a[8]}'
+        dig web-01.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain web-01 is a %s record and points to %s\n", a[7], a[8]}'
+        dig web-02.$1 | grep -A1 'ANSWER SECTION:' | tr '\n' ' ' | awk '{split($0,a," "); printf "The subdomain web-02 is a %s record and points to %s\n", a[7], a[8]}'
+    fi
 
-function show_all() {
-    for arg in $SUBDOMAINS
-    do
-        echo -n "The subdomain $arg is a "
-        dig "$arg"."$domain" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
-    done
 }
 
-if [ $# -eq 2 ]
-then
-    echo -n "The subdomain $2 is a "
-    dig "$2"."$domain" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}'
-else
-    show_all
-fi
+sub_info $1 $2
