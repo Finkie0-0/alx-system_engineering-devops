@@ -9,18 +9,18 @@ if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com/'
 
     user = '{}users/{}'.format(url, sys.argv[1])
-    result = requests.get(user)
-    json_o = result.json()
+    res = requests.get(user)
+    json_o = res.json()
     print("Employee {} is done with tasks".format(json_o.get('name')), end="")
 
-    todo = '{}todo?userId={}'.format(url, sys.argv[1])
-    result = requests.get(todo)
-    tasks = result.json()
-    list_tasks = []
+    todos = '{}todos?userId={}'.format(url, sys.argv[1])
+    res = requests.get(todos)
+    tasks = res.json()
+    list_task = []
     for task in tasks:
-        if task.get('Completed') is True:
-            list_tasks.append(task)
+        if task.get('completed') is True:
+            list_task.append(task)
 
-    print("({}/{}):".format(len(list_tasks), len(tasks)))
-    for task in list_tasks:
-        print("\t {}".format(tasks.get("title")))
+    print("({}/{}):".format(len(list_task), len(tasks)))
+    for task in list_task:
+        print("\t {}".format(task.get("title")))
