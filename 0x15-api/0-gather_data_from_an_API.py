@@ -24,3 +24,4 @@ if __name__ == "__main__":
     print("({}/{}):".format(len(list_task), len(tasks)))
     for task in list_task:
         print("\t {}".format(task.get("title")))
+
