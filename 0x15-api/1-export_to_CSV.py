@@ -17,9 +17,9 @@ if __name__ == "__main__":
     todos = '{}todos?userId={}'.format(url, userid)
     res = requests.get(todos)
     tasks = res.json()
-    l_task = []
+    list_task = []
     for task in tasks:
-        l_task.append([userid,
+        list_task.append([userid,
                        name,
                        task.get('completed'),
                        task.get('title')])
@@ -30,5 +30,5 @@ if __name__ == "__main__":
                                      delimiter=',',
                                      quotechar='"',
                                      quoting=csv.QUOTE_ALL)
-        for task in l_task:
+        for task in list_task:
             employee_writer.writerow(task)
