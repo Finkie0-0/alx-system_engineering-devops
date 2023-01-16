@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Write a Python script that, using this REST API, for a given employee ID, returns information about his/her TODO list progress."""
+""" Script that uses JSONPlaceholder API to get information about employee """
 import requests
 import sys
 
@@ -22,4 +22,3 @@ if __name__ == "__main__":
     print("({}/{}):".format(len(list_task), len(tasks)))
     for task in list_task:
         print("\t {}".format(task.get("title")))
-
