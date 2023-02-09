@@ -1,9 +1,10 @@
-exec { 'hard file limit':
-  command => "sed -i 's/^holberton hard nofile /#holberton\thard\tnofile\t/' /etc/security/limits.conf",
-  path    => '/bin:/usr/bin:/usr/local/bin'
+# change the limit of open files in nginx os
+exec {'change limit':
+  command  => "sudo sed -i 's/holberton soft nofile 4/holberton soft nofile 88888/g'  /etc/security/limits.conf",
+  provider => shell
 }
 
-exec { 'soft file limit':
-  command => "sed -i 's/^holberton soft nofile /#holberton\tsoft\tnofile\t/' /etc/security/limits.conf",
-  path    => '/bin:/usr/bin:/usr/local/bin'
+exec {'change limit':
+  command  => "sudo sed -i 's/holberton hard nofile 5/holberton hard nofile 88888/g'  /etc/security/limits.conf",
+  provider => shell
 }
